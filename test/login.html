@@ -12,6 +12,34 @@
 
 <body >
     <h1>Welcome to Musicplayer</h1>
+    <?php
+        if (isset($_POST["submit"])) {
+           $username = $_POST["username"];
+           $password = $_POST["pwd"];
+            require_once "database.php";
+            $sql = "SELECT * FROM register WHERE username = '$username'";
+            $result = mysqli_query($conn, $sql);
+            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            if ($user) {
+                if (password_verify($password, $user["pwd"])) {
+                    session_start();
+                    $_SESSION["user"] = "yes";
+                    header("Location: index.php");
+                    die();
+                }else{
+                    echo '<script>
+                    window.location.href="login.php"
+                        alert("Password does not match!!");
+                        </script>';
+                }
+            }else{
+                echo '<script>
+      window.location.href="login.php"
+          alert("username does not match!!");
+          </script>';
+            }
+        }
+        ?>
     <form action="login.php" method="post">
         
         <!-- Headings for the form -->
@@ -48,10 +76,13 @@
 
 
             <!-- Submit button -->
-            <button type="submit" name="submit" disabled > <a href="home.html">Login</a></button>
+            <div class="sub">
+<!-- Click to verify valid password -->
+               <button type = "submit" name = "submit" value = "Submit">login</button>
+              </div>
 
             <!-- Sign up link -->
-            <p class="register">Not a member?  <a href="register.html" >Register here!</a></p>
+            <p class="register">Not a member?  <a href="register.php" >Register here!</a></p>
             
         
 
