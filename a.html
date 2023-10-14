@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player - InCoderWeb</title>
+    <link rel="stylesheet" href="a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="musicPlayerMainContainer">
+        <div class="musicListArea">
+            <div class="topOptions">
+                <div class="topOptionsIcon">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <div class="title">Music Player</div>
+                <div class="topOptionsIcon">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+            </div>
+            <div class="albumDetails">
+                <div class="outerBox">
+                    <img src="https://drive.google.com/uc?id=1mcO92astAN3SUYh0JTUzjqAv7p2sm07c&export=download" alt="Ablum Cover" class="albumCover" />
+                    <button class="playAlbum"><i class="fa-solid fa-play"></i></button>
+                </div>
+                <p>My Album</p>
+            </div>
+            <div class="songsList">
+            </div>
+        </div>
+        <div class="mainPlayer">
+            <div class="musicPlayerArea">
+                <div class="topOptions">
+                    <div class="topOptionsIcon backToAlbumBtn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div class="title">Now Playing</div>
+                    <div class="topOptionsIcon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+                <div class="albumDetails">
+                    <div class="outerBox">
+                        <img src="Images/albumCover.jpg" alt="Ablum Cover" class="albumCover" />
+                    </div>
+                    <audio src="" id="mainAudio"></audio>
+                    <div class="title"></div>
+                    <div class="artist"></div>
+                </div>
+                <div class="playerButtons">
+                    <div class="mainButtons">
+                        <button class="prevBtn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="playSongBtn"><i class="fa-solid fa-pause"></i></button>
+                        <button class="nextBtn"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
+                    <div class="progressBar">
+                        <input type="range" name="" id="songTime" />
+                        <div class="songTimings">
+                            <div id="currentTime">00:00</div>
+                            <div id="totalDuration">00:00</div>
+                        </div>
+                    </div>
+                    <div class="secondaryButtons">
+                        <button class="repeatBtn on"><i class="fa-solid fa-repeat"></i></button>
+                        <button class="shuffleBtn" disabled><i class="fa-solid fa-shuffle"></i></button>
+                        <button class="muteNUnmuteBtn"><i class="fa-solid fa-volume-high"></i></button>
+                        <button class="returnToAlbumBtn"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="songsList.js"></script>
+    <script src="a.js"></script>
+</body>
+
+</html>

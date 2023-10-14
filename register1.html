@@ -1,0 +1,116 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="register.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<form name="RegForm" onsubmit="return music()"
+method="post">
+    <div class="headingsContainer">
+        <!-- close button-->
+        <div id="close-btn">
+        <button  aria-label="Close alert" type="button" data-close>
+        <span aria-hidden="true"><a href="home page.html">&times;</a></span>
+          </button>
+        </div>
+        <h3>Register form</h3>
+        <p>Register with your username and set the password to signin</p>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div class="mainContainer">
+<!-- Enter first name -->
+<label> User name <ion-icon name="person"></ion-icon> </label><br>
+<input type = "text" id = "username" value = "" name="username" required>  </div>
+<!-- Enter email -->
+<div class="maincontainer">
+<label>Email<ion-icon name="mail"></ion-icon></label><br>
+<input type="email" id="email" value="" name="email" required>
+</div>
+<!-- Create a new password -->
+<div class="mainContainer">
+<label>  Password<ion-icon name="lock-closed"></ion-icon> </label><br>
+<input type = "password" id = "pwd" value = "" name="pwd" required> 
+</div>
+<!-- re-enter password -->
+<div class="mainContainer">
+<label> Confirm Password*<ion-icon name="lock-closed"></ion-icon> </label><br>
+<input type = "password" id = "cpwd" value = "" name="cpwd" required> 
+</div>
+<!-- checkbox -->
+<div class="subcontainer">
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+<div class="sub">
+<!-- Click to verify valid password -->
+<button type = "submit" value = "Submit">submit</button>
+</div>
+</div>
+<div>
+    <p>Already have an account? <a href="login page.html">Log in</a>.</p>
+  </div>
+</form>
+<script>
+function music(){
+  var name =
+      document.forms.RegForm.username.value;
+  var email =
+      document.forms.RegForm.email.value;
+  var password =
+      document.forms.RegForm.pwd.value;
+  var cpassword =
+      document.forms.RegForm.cpwd.value;
+  //Javascript reGex for Email Validation.
+  var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  
+  // Javascript reGex for Phone Number validation.
+  var regPhone=/^\d{10}$/;                        
+  // Javascript reGex for Name validation
+  var regName = /\d+$/g;                          
+
+  if (name == "" || regName.test(name)) {
+      window.alert("Please enter your name properly.");
+      name.focus();
+      return false;
+  }
+  if (email == "" || !regEmail.test(email)) {
+      window.alert("Please enter a valid e-mail address.");
+      email.focus();
+      return false;
+  }
+    
+  if (password == "") {
+      alert("Please enter your password");
+      password.focus();
+      return false;
+  }
+
+  if(password.length <6){
+      alert("Password should be atleast 6 character long");
+      password.focus();
+      return false;
+
+  }
+  if (password != cpassword ) {
+      alert("password doesnot match.");
+      phone.focus();
+      return false;
+  }
+
+  if (what.selectedIndex == -1) {
+      alert("Please enter your course.");
+      what.focus();
+      return false;
+  }
+
+  return true;
+}
+</script>
+</body>
+</html>
+
+ 

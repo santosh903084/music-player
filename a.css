@@ -1,0 +1,366 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c4569;
+}
+
+.musicPlayerMainContainer {
+  width: 50rem;
+  height: 35rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2rem;
+  background-color: #515e8f;
+}
+
+.musicListArea::-webkit-scrollbar {
+  width: 0px;
+}
+
+.musicListArea {
+  height: 100% !important;
+  overflow-y: scroll;
+}
+
+.musicListArea,
+.musicListArea .topOptions {
+  width: 100%;
+  height: 8rem;
+  /* display: none; */
+  position: relative;
+  background: #262b42;
+}
+
+.topOptions {
+  display: flex;
+  padding: 1.5rem 1rem;
+  justify-content: space-between;
+}
+
+.topOptions .title {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.topOptionsIcon {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  cursor: pointer;
+  color: #515e8f;
+  font-size: 1.3rem;
+  align-items: center;
+  border-radius: 5rem;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0, 0.61, 1, 1);
+}
+
+.topOptionsIcon:hover {
+  color: #fff;
+  background-color: #555e90;
+}
+
+.albumDetails .outerBox {
+  top: 5rem;
+  width: 5.5rem;
+  left: 1.5rem;
+  height: 5.5rem;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  border-radius: 0.8rem;
+  justify-content: center;
+  background-color: #515e8f;
+  box-shadow: #3d476b 0 0 15px 2px;
+}
+
+.albumDetails .albumCover {
+  width: 5rem;
+  height: 4.3rem;
+  max-width: 4rem;
+  border-radius: 0.8rem;
+}
+
+.albumDetails p {
+  top: 5.9rem;
+  left: 8rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  position: absolute;
+}
+
+.playAlbum {
+  right: -0.5rem;
+  bottom: -0.5rem;
+  border: none;
+  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  backdrop-filter: blur(0.5px);
+  background-color: #404664;
+  transition: all 0.3s cubic-bezier(0, 0.61, 1, 1);
+}
+
+.playAlbum:hover {
+  box-shadow: #282b42 0 0 8px -3px;
+}
+
+.songsList {
+  margin-top: 4.5rem;
+  padding: 0rem 1rem;
+  padding-bottom: 4rem;
+}
+
+.songsList .song {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 1.2rem;
+  backdrop-filter: blur(0.5px);
+  background-color: #7e84a76b;
+  transition: transform 0.3s ease;
+}
+
+.songsList .song:hover {
+  transform: translateY(-0.2rem);
+}
+
+.songsList .song .icon {
+  border: none;
+  display: flex;
+  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 50%;
+  align-items: center;
+  margin-right: 0.5rem;
+  justify-content: center;
+  backdrop-filter: blur(0.5px);
+  background-color: #404664;
+  transition: all 0.3s cubic-bezier(0, 0.61, 1, 1);
+}
+
+.songsList .song .icon:hover {
+  box-shadow: #282b42 0 0 8px -3px;
+}
+
+.songsList .song .details .info {
+  display: flex;
+  color: #ffffff96;
+  width: 12rem;
+    justify-content: space-between;
+}
+
+.songsList .song .details .info .artist {
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
+}
+
+.songsList .song .details .info .duration {
+  font-size: 0.75rem;
+}
+
+.songsList .song .details .title {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* --------------------- Music Player Code --------------------- */
+
+.musicPlayerArea {
+  width: 100%;
+  height: 12rem;
+  position: relative;
+  background: #262b42;
+}
+
+.mainPlayer {
+    top: 91%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all .5s ease-in-out;
+    backdrop-filter: blur(1px);
+    background-color: #515e8f;
+}
+
+.mainPlayer.active {
+    top: 0%;
+}
+
+.musicPlayerArea .topOptions {
+  padding-top: 3rem;
+  position: relative;
+}
+
+.songTimings{
+  display: flex;
+  color: #ffffff94;
+  justify-content: space-between;
+}
+
+.musicPlayerArea .topOptions::before {
+  left: 41%;
+  content: "";
+  top: 1.5rem;
+  cursor: grab;
+  width: 3.5rem;
+  height: 0.3rem;
+  border-radius: 1rem;
+  position: absolute;
+  background-color: #fff;
+}
+
+.musicPlayerArea .albumDetails .outerBox {
+  top: 6rem;
+  left: 3.2rem;
+  display: flex;
+  width: 12.5rem;
+  height: 11.5rem;
+  position: absolute;
+  align-items: center;
+  border-radius: 0.8rem;
+  justify-content: center;
+  background-color: #515e8f;
+  box-shadow: #3d476b 0 0 15px 2px;
+}
+
+.musicPlayerArea .albumDetails .albumCover {
+  width: 11rem;
+  height: 10rem;
+  max-width: 100%;
+  border-radius: 0.8rem;
+}
+
+.musicPlayerArea .albumDetails .title {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-top: 12rem;
+  text-align: center;
+}
+
+.musicPlayerArea .albumDetails .artist {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  color: #ffffff94;
+  text-align: center;
+}
+
+.playerButtons {
+  margin-top: 2rem;
+}
+
+.mainButtons,
+.secondaryButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mainButtons button,
+.secondaryButtons button {
+  color: #fff;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  outline-offset: 1px;
+  background-color: #262b42;
+  transition: all 0.3s cubic-bezier(0, 0.61, 1, 1);
+}
+
+.mainButtons button:hover {
+  box-shadow: #282b42 0 0 8px -3px;
+}
+
+.mainButtons button:nth-child(1) {
+  margin-top: 0.4rem;
+}
+
+.mainButtons button:nth-child(3) {
+  margin-top: 0.4rem;
+}
+
+.mainButtons button:nth-child(2) {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+}
+
+.mainButtons button:focus,
+.secondaryButtons button.on {
+  outline: 2px solid #262b42;
+}
+
+.secondaryButtons button:disabled{
+  background-color: #262b426b!important;
+}
+
+#songTime {
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.progressBar{
+  margin: 1.5rem 1.4rem;
+  margin-top: .5rem;
+  margin-bottom: .8rem;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  border-radius: 1rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #ffffff94;
+  height: 0.2rem;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px;
+  border-radius: 1rem;
+  background-color: #262b42;
+  height: 1rem;
+  width: 1rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline-offset: 1px;
+  outline: 1px solid #262b42;
+}
+
+input[type="range"]::before {
+  content: "";
+  top: 0;
+  left: 0%;
+  width: var(--progressWidth);
+  height: 150%;
+  position: absolute;
+  border-radius: 2px;
+  background-color: #262b42;
+}
