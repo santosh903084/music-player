@@ -75,7 +75,7 @@ const allSongs = [
         artist: "Chinmayi Sripada,Shahil Hada",
         image: "https://dns2.pendusaab.com/thumbmed/1041693.jpg",
         src: "https://dns4.pendusaab.com/download/128k-rwuu/Rooba-Rooba.mp3",
-    },
+    }
 ]
 
 const mainPlayBtn = document.querySelector('.playAlbum')
