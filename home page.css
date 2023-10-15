@@ -69,7 +69,7 @@ body {
   .content{
     margin-top: -350px;
     text-align: center;
-    margin-right: -50px;
+    margin-right: -400px;
     font-size:large;
     
   }
@@ -89,29 +89,6 @@ body {
   .btn{
     background-color: transparent;
   }
-  .content1{
-    margin-top: 150px;
-    text-align: left;
-    margin-left: 10px;
-    font-size:large;
-    
-  }
-  .content1 h1{
-    font-weight: 500;
-    font-size: 40px;
-    color: #fff;
-  }
-  .content1 p{
-    margin-top: 30px;
-    font-weight: 400;
-    color:rgb(210, 36, 30);
-    .content .btn{
-      transition: 0.4s;
-    }
-  }
-  .btn1{
-    background-color: transparent;
-  }
   .image{
     margin-top: -140px;
   margin-left: 20cm;
@@ -122,3 +99,9 @@ body {
     margin-top: 10%;
     font-size:large;
   }
+ .contact a{
+  color: whitesmoke;
+ }
+ .contact a:hover{
+  background-color: red;
+ }
