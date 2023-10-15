@@ -80,6 +80,7 @@ body {
   }
   .content p{
     margin-top: 30px;
+    margin-left: 2cm;
     font-weight: 400;
     color:chocolate;
     .content .btn{
