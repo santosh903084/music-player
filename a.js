@@ -50,200 +50,30 @@ const allSongs = [
     },
     {
         id: "8",
-        name: "Vikram",
-        artist: "Anirudh",
-        image: "https://naasongslyrics.com/wp-content/uploads/2022/06/vikram-songs-198x300.jpg",
-        src: "https://naasongs.vip/myuploads/uploads/Vikram%20Hitlist/Once-Upon-a-Time-MassTamilan.in.mp3",
+        name: "O Pitta Katha",
+        artist: " Praveen Lakkaraju",
+        image: "https://dns2.pendusaab.com/thumbmed/19498751.jpg",
+        src: "https://dns4.pendusaab.com/download/128k-dkgbw/Emai-Pothane.mp3",
+    },
+    {
+        id: "9",
+        name: " Raghuvaran B.Tech",
+        artist: " Dhanunjay",
+        image: "https://dns2.pendusaab.com/thumbmed/1216256.jpg",
+        src: "https://dns4.pendusaab.com/download/128k-awcwy/Po-Pove-Yekantham.mp3",
+    },
+    {
+        id: "10",
+        name: "Count Down Begins",
+        artist: " Sid Sriram",
+        image: "https://dns2.pendusaab.com/thumbmed/14736473.jpg",
+        src: "https://dns4.pendusaab.com/download/128k-dkwzg/Undiporaadhey-(From-%22Hushaaru%22).mp3",
+    },
+    {
+        id: "11",
+        name: "Orange",
+        artist: "Chinmayi Sripada,Shahil Hada",
+        image: "https://dns2.pendusaab.com/thumbmed/1041693.jpg",
+        src: "https://dns4.pendusaab.com/download/128k-rwuu/Rooba-Rooba.mp3",
     },
 ]
-
-const mainPlayBtn = document.querySelector('.playAlbum')
-backToAlbumBtn = document.querySelector('.backToAlbumBtn')
-songsList = document.querySelector('.songsList')
-music = document.querySelector('#mainAudio')
-playNPauseBtn = document.querySelector('.playSongBtn')
-muteNUnmuteBtn = document.querySelector('.muteNUnmuteBtn')
-returnToAlbumBtn = document.querySelector('.returnToAlbumBtn')
-prevBtn = document.querySelector('.prevBtn')
-nextBtn = document.querySelector('.nextBtn')
-songTime = document.querySelector('#songTime')
-repeatBtn = document.querySelector('.repeatBtn')
-shuffleBtn = document.querySelector('.shuffleBtn')
-mainPlayer = document.querySelector('.mainPlayer');
-
-mainPlayBtn.addEventListener('click', (e) => {
-    mainPlayer.classList.add('active')
-})
-
-backToAlbumBtn.addEventListener('click', (e) => {
-    mainPlayer.classList.remove('active')
-})
-
-const loadMusic = (index) => {
-    document.querySelector('.musicPlayerArea .albumDetails .title').innerText = allSongs[index - 1].name
-    document.querySelector('.musicPlayerArea .albumDetails .artist').innerText = allSongs[index - 1].artist
-    document.querySelector('.musicPlayerArea .albumDetails .albumCover').src = allSongs[index - 1].image
-    music.setAttribute('data-currentIndex', index)
-    music.src = allSongs[index - 1].src
-}
-
-const openPlayer = (index) => {
-    mainPlayer.classList.add('muted', 'active', 'paused')
-    if (mainPlayer.classList.contains("paused")) {
-        playNPauseBtn.querySelector("i").classList.remove('fa-play')
-        playNPauseBtn.querySelector("i").classList.add('fa-pause')
-    }
-    loadMusic(index)
-    music.play()
-}
-
-const playMusic = () => {
-    mainPlayer.classList.add('paused')
-    playNPauseBtn.querySelector("i").classList.remove('fa-play')
-    playNPauseBtn.querySelector("i").classList.add('fa-pause')
-    music.play()
-}
-
-const pauseMusic = () => {
-    mainPlayer.classList.remove('paused')
-    playNPauseBtn.querySelector("i").classList.remove('fa-pause')
-    playNPauseBtn.querySelector("i").classList.add('fa-play')
-    music.pause()
-}
-
-playNPauseBtn.addEventListener('click', () => {
-    const isMusicPaused = mainPlayer.classList.contains("paused")
-    isMusicPaused ? pauseMusic() : playMusic()
-})
-
-const mute = () => {
-    mainPlayer.classList.remove('muted')
-    muteNUnmuteBtn.querySelector("i").classList.remove('fa-volume-high')
-    muteNUnmuteBtn.querySelector("i").classList.add('fa-volume-xmark')
-    music.volume = 0;
-}
-
-const unmute = () => {
-    mainPlayer.classList.add('muted')
-    muteNUnmuteBtn.querySelector("i").classList.remove('fa-volume-xmark')
-    muteNUnmuteBtn.querySelector("i").classList.add('fa-volume-high')
-    music.volume = 1;
-}
-
-muteNUnmuteBtn.addEventListener('click', () => {
-    const isMuted = mainPlayer.classList.contains("muted")
-    isMuted ? mute() : unmute()
-})
-
-returnToAlbumBtn.addEventListener('click', () => {
-    mainPlayer.classList.remove('active')
-})
-
-mainPlayBtn.addEventListener('click', () => {
-    openPlayer(1)
-})
-
-prevBtn.addEventListener('click', () => {
-    let currentIndex = music.getAttribute('data-currentIndex')
-    if ((currentIndex - 1) <= 0) {
-        loadMusic(1)
-    } else {
-        loadMusic(currentIndex - 1)
-    }
-    mainPlayer.classList.add('paused')
-    music.play()
-})
-
-nextBtn.addEventListener('click', () => {
-    let currentIndex = music.getAttribute('data-currentIndex')
-    if ((parseInt(currentIndex) + 1) >= allSongs.length) {
-        loadMusic(allSongs.length)
-    } else {
-        loadMusic(parseInt(currentIndex) + 1);
-    }
-    mainPlayer.classList.add('paused')
-    music.play()
-})
-
-music.addEventListener("timeupdate", (e) => {
-    const currentTime = e.target.currentTime;
-    const duration = e.target.duration;
-    let progressWidth = (currentTime / duration) * 100;
-    songTime.value = progressWidth
-    document.documentElement.style.cssText = `--progressWidth: ${progressWidth}%`;
-
-    let musicCurrentTime = document.querySelector('#currentTime');
-    musicDuration = document.querySelector('#totalDuration');
-
-    music.addEventListener("loadeddata", (e) => {
-        totalMin = Math.floor(music.duration / 60);
-        totalSec = Math.floor(music.duration % 60);
-        if (totalSec < 10) {
-            totalSec = `0${totalSec}`
-        }
-        musicDuration.innerHTML = `${totalMin}:${totalSec}`;
-
-    })
-    let currentMin = Math.floor(currentTime / 60);
-    currentSec = Math.floor(currentTime % 60);
-    if (currentSec < 10) {
-        currentSec = `0${currentSec}`
-    }
-    musicCurrentTime.innerHTML = `${currentMin}:${currentSec}`;
-})
-
-songTime.addEventListener('click', (e) => {
-    let progressWidthVal = songTime.clientWidth
-    clickedOffsetX = e.offsetX
-    songDuration = music.duration
-    music.currentTime = (clickedOffsetX / progressWidthVal) * songDuration
-})
-
-repeatBtn.addEventListener('click', () => {
-    if(repeatBtn.classList.contains("on")){
-        repeatBtn.classList.remove("on")
-        shuffleBtn.removeAttribute("disabled")
-    }else{
-        repeatBtn.classList.add("on")
-        shuffleBtn.setAttribute("disabled", "disabled")
-        shuffleBtn.classList.remove("on")
-    }
-})
-
-shuffleBtn.addEventListener('click', () => {
-    if(shuffleBtn.classList.contains("on")){
-        shuffleBtn.classList.remove("on")
-        repeatBtn.removeAttribute("disabled")
-    }else{
-        shuffleBtn.classList.add("on")
-        repeatBtn.setAttribute("disabled", "disabled")
-        repeatBtn.classList.remove("on")
-    }
-})
-
-music.addEventListener("ended", () => {
-    if(repeatBtn.classList.contains("on")){
-        music.currentTime = 0
-        music.play()
-    }
-    
-    if(shuffleBtn.classList.contains("on")){
-        let randomIndex = Math.floor((Math.random() * allSongs.length) + 1)
-        console.log(randomIndex);
-        loadMusic(randomIndex)
-        music.play()
-    }
-
-})
-
-allSongs.forEach((song) => {
-    songsList.innerHTML += `<div class="song">
-    <div class="icon" onClick="openPlayer(${song.id})"><i class="fa-solid fa-play"></i></div>
-    <div class="details">
-    <div class="title">${song.name}</div>
-    <div class="info">
-    <div class="artist">${song.artist}</div>
-    </div>
-    </div>
-    </div>`;
-})
