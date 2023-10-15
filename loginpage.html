@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login page.css">
+
+    <title>Welcome to Musicplayer</title>
+</head>
+<body >
+    <h1>Welcome to Musicplayer</h1>
+    <form action="/" method="post">
+        
+        <!-- Headings for the form -->
+        <div class="headingsContainer" >
+            <div id="close-btn">
+                <button  aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true"><a href="home page.html">&times;</a></span>
+                  </button>
+                </div> 
+            <h3>Sign in</h3>
+            <p>Sign in with your username and password</p>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        
+        <!-- Main container for all inputs -->
+        <div class="mainContainer">
+            <!-- Username -->
+            <label for="username"><ion-icon name="person"></ion-icon>Username:</label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+        </div>
+        <div class="mainContainer">
+            <!-- Password -->
+            <label for="pwd"><ion-icon name="lock-closed"></ion-icon>password:</label>
+            <input type="password" minlength="8" placeholder="Enter Password" name="pwd" required>
+        </div>
+            <!-- sub container for the checkbox and forgot password link -->
+            <div class="subcontainer">
+                <label>
+                    <input type="checkbox" name="terms" id="terms"> Remember me
+                  </label>
+                <p class="forgotpsd"> <a href="forgotten password.html">Forgot Password?</a></p>
+            </div>
+            <!-- Submit button -->
+            <button type="submit" href="home page.html"  onclick="return check(this.form)" id="signup-button" disabled>Login</button>
+
+            <!-- Sign up link -->
+            <p class="register">Not a member?  <a href="register1.html" >Register here!</a></p>
+            <br><p>login with this username and password <br>USERNAME: guest<br> PASSWORD: guest@123</p>
+    </form>
+    <script src="login.js"></script>
+    <script src="login1.js"></script>
+</body>
+</html>
