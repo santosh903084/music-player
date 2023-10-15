@@ -34,6 +34,27 @@ const allSongs = [
         image: "https://pagalworld.cool/siteuploads/thumb/sft2/800_resize2x_250x250.webp",
         src: "https://naasongs.vip/myuploads/uploads/Baby/O%20Rendu%20Prema%20Meghaalila.mp3",
     },
+    {
+        id: "6",
+        name: "Shape of You ",
+        artist: "Ed Sheeran",
+        image: "https://t2.genius.com/unsafe/425x425/https%3A%2F%2Fimages.genius.com%2F86dcab92e27599f8556b5b8f21932449.1000x1000x1.png",
+        src: "https://files.gospeljingle.com/uploads/music/2023/01/Ed_Sheeran_-_Shape_Of_You.mp3",
+    },
+    {
+        id: "7",
+        name: "LEO",
+        artist: "Anirudh",
+        image: "https://img.wynk.in/unsafe/248x248/filters:no_upscale():strip_exif():format(webp)/http://s3.ap-south-1.amazonaws.com/wynk-music-cms/srch_sonymusic/A10301A00050912496_20230622145652035/1687439706430/resources/A10301A00050912496.jpg",
+        src: "https://naasongs.vip/myuploads/uploads/Leo/Bloody%20Sweet.mp3",
+    },
+    {
+        id: "8",
+        name: "Vikram",
+        artist: "Anirudh",
+        image: "https://naasongslyrics.com/wp-content/uploads/2022/06/vikram-songs-198x300.jpg",
+        src: "https://naasongs.vip/myuploads/uploads/Vikram%20Hitlist/Once-Upon-a-Time-MassTamilan.in.mp3",
+    },
 ]
 
 const mainPlayBtn = document.querySelector('.playAlbum')
